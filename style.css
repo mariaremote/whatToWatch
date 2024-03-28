@@ -1,107 +1,117 @@
 body {
-  background-color: #7f0920;
-  color: #0a0408;
+    background-color: #7f0920;
+    color: #0a0408;
 }
 
 #appTitle {
-  text-align: center;
-  margin: 0px auto;
-  display: block;
-  font-family: "Staatliches", sans-serif;
-  font-size: 80px;
+    text-align: center;
+    margin: 0px auto;
+    display: block;
+    font-family: 'Staatliches', sans-serif;
+    font-size: 80px;
 }
 
 @media only screen and (max-width: 550px) {
-  #appTitle {
-    font-size: 60px;
-  }
+    #appTitle {
+        font-size: 60px;
+    }
 }
 
 #genreForm,
 #playBtn {
-  text-align: center;
-  margin: 0px auto;
-  display: block;
-  font-family: "Fredoka One", sans-serif;
+    text-align: center;
+    margin: 0px auto;
+    display: block;
+    font-family: 'Fredoka One', sans-serif;
 }
 
 #movieInfo {
-  width: 65%;
-  margin: 32px auto;
+    width: 80%;
+    margin: 32px auto;
+    display: flex;
+    flex-direction: row;
+}
+
+@media only screen and (max-width: 550px) {
+    #movieInfo {
+        flex-direction: column;
+    }
 }
 
 #movieInfo:after {
-  content: "";
-  display: table;
-  clear: both;
+    content: '';
+    display: table;
+    clear: both;
 }
 
-#moviePoster,
+/* #moviePoster,
 #movieText {
-  width: 50%;
-  float: left;
-}
+    width: 50%;
+    float: left;
+} */
 
 img#moviePoster {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: auto;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+    align-self: center;
 }
 
 #movieText {
-  font-family: "Questrial";
-  color: #fefbea;
-  line-height: 1.25;
+    font-family: 'Questrial';
+    color: #fefbea;
+    background-color: rgb(115, 64, 63);
+    line-height: 1.25;
 }
 
 #movieTitle,
-#movieOverview {
-  padding: 32px;
+` #movieOverview {
+    padding: 32px;
 }
 
 #playBtn {
-  margin-top: 20px;
-  font-size: 25px;
-  padding: 7px 10px;
-  border-radius: 10px;
-  border-style: none;
-  background-color: #b97828;
-  color: #fdc238;
-  cursor: pointer;
+    margin-top: 20px;
+    font-size: 25px;
+    padding: 7px 10px;
+    border-radius: 10px;
+    border-style: none;
+    background-color: #b97828;
+    color: #fdc238;
+    cursor: pointer;
 }
 
 label {
-  display: block;
-  font-size: 35px;
-  margin-bottom: 5px;
+    display: block;
+    font-size: 35px;
+    margin-bottom: 5px;
 }
 
 select {
-  width: 200px;
-  height: auto;
+    width: 200px;
+    height: auto;
 }
 
 #likeOrDislikeBtns {
-  text-align: center;
-  margin: 0px auto;
+    text-align: center;
+    margin: 0px auto;
 }
 
 #likeBtn,
 #dislikeBtn {
-  padding: 15px 25px;
-  font-size: 25px;
-  border-radius: 12px;
-  border-style: none;
-  cursor: pointer;
+    padding: 15px 25px;
+    font-size: 25px;
+    border-radius: 12px;
+    border-style: none;
+    cursor: pointer;
 }
 
 #likeBtn {
-  background-color: #249e57;
-  color: darkgreen;
+    background-color: #249e57;
+    color: darkgreen;
 }
 
 #dislikeBtn {
-  background-color: #c74a4a;
-  color: #910000;
+    background-color: #c74a4a;
+    color: #910000;
 }
