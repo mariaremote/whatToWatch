@@ -35,7 +35,7 @@ const getMovies = async () => {
             const jsonResponse = await response.json();
             // console.log(jsonResponse);
             const movies = jsonResponse.results;
-            // console.log(movies);
+            console.log(movies);
             return movies;
         }
     } catch (error) {
