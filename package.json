@@ -1,17 +1,21 @@
 {
-  "name": "whattowatch",
-  "version": "1.0.0",
-  "description": "This project was part of [Codecademy's](https://www.codecademy.com/learn/paths/front-end-engineer-career-path) **Front-End Development** course on `Async JavaScript and HTTP Requests`.",
-  "main": "script.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "prettier": "^3.2.5"
-  }
+    "name": "whattowatch",
+    "version": "1.0.0",
+    "description": "This project was part of [Codecademy's](https://www.codecademy.com/learn/paths/front-end-engineer-career-path) **Front-End Development** course on `Async JavaScript and HTTP Requests`.",
+    "main": "script.mjs",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "eslint": "^8.57.0",
+        "eslint-config-prettier": "^9.1.0",
+        "prettier": "^3.2.5"
+    },
+    "dependencies": {
+        "dotenv": "^16.4.5"
+    }
 }

@@ -1,4 +1,4 @@
-import { showRandomMovie } from './script.js';
+import { showRandomMovie } from './script.mjs';
 
 // Populate dropdown menu with all the available genres
 const populateGenreDropdown = (genres) => {
