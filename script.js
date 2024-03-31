@@ -33,9 +33,7 @@ const getMovies = async () => {
         const response = await fetch(urlToFetch, { method: 'GET' });
         if (response.ok) {
             const jsonResponse = await response.json();
-            // console.log(jsonResponse);
             const movies = jsonResponse.results;
-            console.log(movies);
             return movies;
         }
     } catch (error) {
@@ -58,6 +56,23 @@ const getMovieInfo = async (movie) => {
         console.log(error);
     }
 };
+
+const getMovieCredits = async (movie) => {
+    const movieId = movie.id;
+    const creditsEndpoint = `/movie/${movieId}/credits`;
+    const requestParams = `?api_key=${tmdbKey}`;
+    const urlToFetch = `${tmdbBaseUrl}${creditsEndpoint}${requestParams}`;
+    try {
+        const response = await fetch(urlToFetch, { method: 'GET' });
+        if (response.ok) {
+            const movieCredits = await response.json();
+            console.log(movieCredits);
+            return movieCredits;
+        }
+    } catch (error) {
+        console.log(error);
+    }
+};
 // Gets a list of movies and ultimately displays the info of a random movie from the list
 const showRandomMovie = async () => {
     const movieInfo = document.getElementById('movieInfo');
@@ -67,7 +82,8 @@ const showRandomMovie = async () => {
     const movies = await getMovies();
     const randomMovie = await getRandomMovie(movies);
     const info = await getMovieInfo(randomMovie);
-    displayMovie(info);
+    const credits = await getMovieCredits(randomMovie);
+    displayMovie(info, credits);
 };
 
 getGenres().then(populateGenreDropdown);

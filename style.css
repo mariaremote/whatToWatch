@@ -65,9 +65,15 @@ img#moviePoster {
     line-height: 1.25;
 }
 
+#releaseDate {
+    font-style: italic;
+}
+
 #movieTitle,
-#movieOverview {
-    padding: 32px;
+#movieOverview,
+#releaseDate,
+#cast {
+    padding: 10px 32px;
 }
 
 #playBtn {

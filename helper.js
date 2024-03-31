@@ -73,6 +73,28 @@ const createMovieOverview = (overview) => {
     return overviewParagraph;
 };
 
+function formatDate(dateString) {
+    const dateObject = new Date(dateString);
+    const format = { day: 'numeric', month: 'short', year: 'numeric' };
+    const formattedDate = new Intl.DateTimeFormat('en-UK', format).format(dateObject);
+    return formattedDate;
+}
+// Create HTML for movie release date
+const createMovieReleaseDate = (releaseDate) => {
+    const displayDate = document.createElement('p');
+    displayDate.setAttribute('id', 'releaseDate');
+    displayDate.innerHTML = `Release Date: ${formatDate(releaseDate)}`;
+
+    return displayDate;
+};
+
+const createMovieCast = (credits) => {
+    const castElement = document.createElement('p');
+    castElement.setAttribute('id', 'cast');
+    castElement.innerHTML = `with ${credits.cast[0]['name']}, ${credits.cast[1]['name']}, ${credits.cast[2]['name']} and ${credits.cast[3]['name']}`;
+    return castElement;
+};
+
 // Returns a random movie from the first page of movies
 const getRandomMovie = (movies) => {
     const randomIndex = Math.floor(Math.random() * movies.length);
@@ -81,7 +103,7 @@ const getRandomMovie = (movies) => {
 };
 
 // Uses the DOM to create HTML to display the movie
-const displayMovie = (movieInfo) => {
+const displayMovie = (movieInfo, movieCredits) => {
     const moviePosterDiv = document.getElementById('moviePoster');
     const movieTextDiv = document.getElementById('movieText');
     const likeBtn = document.getElementById('likeBtn');
@@ -91,15 +113,26 @@ const displayMovie = (movieInfo) => {
     const moviePoster = createMoviePoster(movieInfo.poster_path);
     const titleHeader = createMovieTitle(movieInfo.title);
     const overviewText = createMovieOverview(movieInfo.overview);
+    const releaseDate = createMovieReleaseDate(movieInfo.release_date);
+    const movieCast = createMovieCast(movieCredits);
 
     // Append title, poster, and overview to page
     moviePosterDiv.appendChild(moviePoster);
     movieTextDiv.appendChild(titleHeader);
+    movieTextDiv.appendChild(releaseDate);
+    movieTextDiv.appendChild(movieCast);
     movieTextDiv.appendChild(overviewText);
 
     showBtns();
     likeBtn.onclick = likeMovie;
     dislikeBtn.onclick = dislikeMovie;
 };
+
+// const displayCredits = (movieCredits) => {
+//     const createCredits = document.createElement('p');
+//     createCredits.innerHTML = movieCredits.cast[0]['name'];
+//     document.getElementById('moviePoster').appendChild(createCredits);
+//     return createCredits;
+// };
 
 export { populateGenreDropdown, getSelectedGenre, displayMovie, getRandomMovie, clearCurrentMovie };
