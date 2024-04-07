@@ -2,7 +2,7 @@ import { populateGenreDropdown, getSelectedGenre, displayMovie, getRandomMovie, 
 
 // LEARN HOW TO EXCLUDE API KEY FROM SCRIPT FILE !!!!!
 
-const tmdbKey = '4aeb889aff82aacf26b0d4eb43d0adcc';
+const tmdbKey = window.TMDB_API_KEY;
 const tmdbBaseUrl = 'https://api.themoviedb.org/3';
 const playBtn = document.getElementById('playBtn');
 
