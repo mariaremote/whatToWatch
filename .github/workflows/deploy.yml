@@ -14,7 +14,7 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
-      - name: Set API keys environment variable
+      - name: Set API keys environment variable # Set the Movied DB API key as an environment variable, and write it to a file.
         env:
             TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
         run: |
