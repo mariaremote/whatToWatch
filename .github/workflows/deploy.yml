@@ -1,24 +1,24 @@
-name: Deploy to GitHub Pages
-
-on:
+name: Deploy to Github Pages
+on: [push]
     push:
         branches: [main]
-
+permissions:
+  contents: write
 jobs:
-    deploy:
-        runs-on: ubuntu-latest
+  build-and-deploy:
+    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
 
-        steps:
-            - uses: actions/checkout@v2
+      - name: Set API keys environment variable
+        env:
+            TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+        run: |
+            echo "window.TMDB_API_KEY = '$TMDB_API_KEY';" > secrets.js
 
-            - name: Set API key environment variable
-              env:
-                  TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
-              run: |
-                  echo "window.TMDB_API_KEY = '$TMDB_API_KEY';" > secrets.js
-
-            - name: Deploy to GitHub Pages
-              uses: peaceiris/actions-gh-pages@v3
-              with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./ # The folder the action should deploy.
